@@ -318,8 +318,7 @@ class _SplashScreenState extends State<SplashScreen>
             },
           ),
 
-          SizedBox(height: 60.h),
-
+          SizedBox(height: 59.h),
           // Text section
           AnimatedBuilder(
             animation: _textController,
