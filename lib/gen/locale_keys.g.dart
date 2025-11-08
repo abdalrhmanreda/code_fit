@@ -1,0 +1,60 @@
+// DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
+
+// ignore_for_file: constant_identifier_names
+
+abstract class LocaleKeys {
+  static const app_name = 'app_name';
+  static const app_tagline = 'app_tagline';
+  static const welcome = 'welcome';
+  static const level = 'level';
+  static const xp = 'xp';
+  static const progress = 'progress';
+  static const completed = 'completed';
+  static const in_progress = 'in_progress';
+  static const locked = 'locked';
+  static const streak = 'streak';
+  static const achievements = 'achievements';
+  static const badges = 'badges';
+  static const roadmap = 'roadmap';
+  static const milestones = 'milestones';
+  static const checkpoints = 'checkpoints';
+  static const profile = 'profile';
+  static const my_progress = 'my_progress';
+  static const statistics = 'statistics';
+  static const settings = 'settings';
+  static const language = 'language';
+  static const theme = 'theme';
+  static const notifications = 'notifications';
+  static const about = 'about';
+  static const skip = 'skip';
+  static const next = 'next';
+  static const back = 'back';
+  static const done = 'done';
+  static const save = 'save';
+  static const cancel = 'cancel';
+  static const get_started = 'get_started';
+  static const onboarding_title_1 = 'onboarding_title_1';
+  static const onboarding_desc_1 = 'onboarding_desc_1';
+  static const onboarding_title_2 = 'onboarding_title_2';
+  static const onboarding_desc_2 = 'onboarding_desc_2';
+  static const onboarding_title_3 = 'onboarding_title_3';
+  static const onboarding_desc_3 = 'onboarding_desc_3';
+  static const phase_1_title = 'phase_1_title';
+  static const phase_1_desc = 'phase_1_desc';
+  static const phase_2_title = 'phase_2_title';
+  static const phase_2_desc = 'phase_2_desc';
+  static const phase_3_title = 'phase_3_title';
+  static const phase_3_desc = 'phase_3_desc';
+  static const phase_4_title = 'phase_4_title';
+  static const phase_4_desc = 'phase_4_desc';
+  static const phase_5_title = 'phase_5_title';
+  static const phase_5_desc = 'phase_5_desc';
+  static const phase_6_title = 'phase_6_title';
+  static const phase_6_desc = 'phase_6_desc';
+  static const no_achievements = 'no_achievements';
+  static const no_milestones = 'no_milestones';
+  static const start_learning = 'start_learning';
+  static const level_up = 'level_up';
+  static const congratulations = 'congratulations';
+  static const new_badge_unlocked = 'new_badge_unlocked';
+}
