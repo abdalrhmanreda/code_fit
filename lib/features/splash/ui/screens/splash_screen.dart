@@ -1,18 +1,19 @@
 import 'dart:math';
 import 'dart:ui';
-import 'package:code_fit/core/constants/app_colors.dart';
+
+import 'package:code_fit/config/colors/app_colors.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:easy_localization/easy_localization.dart';
 
-import '../../../../gen/locale_keys.g.dart';
 import '../../../../core/services/storage_service.dart';
-import '../../../onboarding/ui/screens/onboarding_screen.dart';
+import '../../../../gen/locale_keys.g.dart';
 import '../../../home/ui/screens/home_screen.dart';
+import '../../../onboarding/ui/screens/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_colors.dart';
+
+import '../../../../config/colors/app_colors.dart';
 import '../../../../core/constants/app_icons.dart';
 import '../../../../core/constants/app_strings.dart';
-import '../../../roadmap/ui/screens/roadmap_screen.dart';
 import '../../../achievements/ui/screens/achievements_screen.dart';
 import '../../../profile/ui/screens/profile_screen.dart';
+import '../../../roadmap/ui/screens/roadmap_screen.dart';
 
 /// Home screen with bottom navigation
 class HomeScreen extends StatefulWidget {
@@ -57,7 +58,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: currentIndex,
       onTap: onTap,
-      selectedItemColor: AppColors.primary,
+      selectedItemColor: AppColors.kPrimaryColor,
       unselectedItemColor: AppColors.textSecondary,
       items: const [
         BottomNavigationBarItem(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_colors.dart';
+
+import '../../../../config/colors/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../data/models/milestone_model.dart';
 
@@ -21,13 +22,15 @@ class MilestoneCardWidget extends StatelessWidget {
       child: Material(
         elevation: milestone.isCompleted ? 3 : 2,
         borderRadius: BorderRadius.circular(AppDimensions.radiusLarge),
-        shadowColor: milestone.isCompleted 
-            ? AppColors.success.withOpacity(0.3) 
+        shadowColor: milestone.isCompleted
+            ? AppColors.success.withOpacity(0.3)
             : Colors.black.withOpacity(0.1),
         child: InkWell(
-          onTap: milestone.isLocked ? null : () {
-            // TODO: Navigate to milestone detail or show checkpoints
-          },
+          onTap: milestone.isLocked
+              ? null
+              : () {
+                  // TODO: Navigate to milestone detail or show checkpoints
+                },
           borderRadius: BorderRadius.circular(AppDimensions.radiusLarge),
           child: Container(
             decoration: BoxDecoration(
@@ -44,8 +47,8 @@ class MilestoneCardWidget extends StatelessWidget {
                 color: milestone.isCompleted
                     ? AppColors.success.withOpacity(0.3)
                     : milestone.isLocked
-                        ? AppColors.border
-                        : AppColors.primary.withOpacity(0.2),
+                    ? AppColors.border
+                    : AppColors.kPrimaryColor.withOpacity(0.2),
                 width: 1.5,
               ),
             ),
@@ -54,35 +57,33 @@ class MilestoneCardWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                Row(
-                  children: [
-                    MilestoneIconWidget(
-                      isCompleted: milestone.isCompleted,
-                      isLocked: milestone.isLocked,
-                    ),
-                    const SizedBox(width: AppDimensions.spaceMedium),
-                    Expanded(
-                      child: MilestoneTitleWidget(
-                        milestone: milestone,
-                        language: language,
+                  Row(
+                    children: [
+                      MilestoneIconWidget(
+                        isCompleted: milestone.isCompleted,
+                        isLocked: milestone.isLocked,
                       ),
-                    ),
-                    MilestoneStatusWidget(
-                      isCompleted: milestone.isCompleted,
-                      isLocked: milestone.isLocked,
-                      progress: milestone.progress,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: AppDimensions.spaceMedium),
-                MilestoneProgressBarWidget(
-                  progress: milestone.progress,
-                ),
-                const SizedBox(height: AppDimensions.spaceSmall),
-                MilestoneStatsWidget(
-                  milestone: milestone,
-                  language: language,
-                ),
+                      const SizedBox(width: AppDimensions.spaceMedium),
+                      Expanded(
+                        child: MilestoneTitleWidget(
+                          milestone: milestone,
+                          language: language,
+                        ),
+                      ),
+                      MilestoneStatusWidget(
+                        isCompleted: milestone.isCompleted,
+                        isLocked: milestone.isLocked,
+                        progress: milestone.progress,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: AppDimensions.spaceMedium),
+                  MilestoneProgressBarWidget(progress: milestone.progress),
+                  const SizedBox(height: AppDimensions.spaceSmall),
+                  MilestoneStatsWidget(
+                    milestone: milestone,
+                    language: language,
+                  ),
                 ],
               ),
             ),
@@ -113,21 +114,21 @@ class MilestoneIconWidget extends StatelessWidget {
         color: isCompleted
             ? AppColors.success.withOpacity(0.2)
             : isLocked
-                ? AppColors.textSecondary.withOpacity(0.1)
-                : AppColors.primary.withOpacity(0.2),
+            ? AppColors.textSecondary.withOpacity(0.1)
+            : AppColors.kPrimaryColor.withOpacity(0.2),
         borderRadius: BorderRadius.circular(AppDimensions.radiusSmall),
       ),
       child: Icon(
         isCompleted
             ? Icons.check_circle
             : isLocked
-                ? Icons.lock
-                : Icons.flag,
+            ? Icons.lock
+            : Icons.flag,
         color: isCompleted
             ? AppColors.success
             : isLocked
-                ? AppColors.textSecondary
-                : AppColors.primary,
+            ? AppColors.textSecondary
+            : AppColors.kPrimaryColor,
         size: AppDimensions.iconMedium,
       ),
     );
@@ -155,8 +156,8 @@ class MilestoneTitleWidget extends StatelessWidget {
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: milestone.isLocked 
-                ? AppColors.textSecondary 
+            color: milestone.isLocked
+                ? AppColors.textSecondary
                 : AppColors.textPrimary,
           ),
           maxLines: 2,
@@ -165,10 +166,7 @@ class MilestoneTitleWidget extends StatelessWidget {
         const SizedBox(height: AppDimensions.spaceXSmall),
         Text(
           milestone.getDescription(language),
-          style: const TextStyle(
-            fontSize: 12,
-            color: AppColors.textSecondary,
-          ),
+          style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
@@ -193,17 +191,9 @@ class MilestoneStatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isCompleted) {
-      return const Icon(
-        Icons.check_circle,
-        color: AppColors.success,
-        size: 24,
-      );
+      return const Icon(Icons.check_circle, color: AppColors.success, size: 24);
     } else if (isLocked) {
-      return const Icon(
-        Icons.lock,
-        color: AppColors.textSecondary,
-        size: 24,
-      );
+      return const Icon(Icons.lock, color: AppColors.textSecondary, size: 24);
     } else {
       final percentage = (progress * 100).toInt();
       return Text(
@@ -211,7 +201,7 @@ class MilestoneStatusWidget extends StatelessWidget {
         style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
-          color: AppColors.primary,
+          color: AppColors.kPrimaryColor,
         ),
       );
     }
@@ -222,10 +212,8 @@ class MilestoneStatusWidget extends StatelessWidget {
 class MilestoneProgressBarWidget extends StatelessWidget {
   final double progress;
 
-  const MilestoneProgressBarWidget({
-    Key? key,
-    required this.progress,
-  }) : super(key: key);
+  const MilestoneProgressBarWidget({Key? key, required this.progress})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -234,7 +222,9 @@ class MilestoneProgressBarWidget extends StatelessWidget {
       child: LinearProgressIndicator(
         value: progress,
         backgroundColor: AppColors.progressIncomplete,
-        valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
+        valueColor: const AlwaysStoppedAnimation<Color>(
+          AppColors.kPrimaryColor,
+        ),
         minHeight: 8,
       ),
     );
@@ -264,10 +254,7 @@ class MilestoneStatsWidget extends StatelessWidget {
         const SizedBox(width: AppDimensions.spaceXSmall),
         Text(
           '${milestone.completedCheckpointsCount}/${milestone.checkpoints.length} ${language == 'ar' ? 'نقاط' : 'checkpoints'}',
-          style: const TextStyle(
-            fontSize: 12,
-            color: AppColors.textSecondary,
-          ),
+          style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
         ),
         const SizedBox(width: AppDimensions.spaceMedium),
         const Icon(
@@ -278,10 +265,7 @@ class MilestoneStatsWidget extends StatelessWidget {
         const SizedBox(width: AppDimensions.spaceXSmall),
         Text(
           '${milestone.totalXp} XP',
-          style: const TextStyle(
-            fontSize: 12,
-            color: AppColors.textSecondary,
-          ),
+          style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
         ),
       ],
     );

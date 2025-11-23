@@ -1,12 +1,21 @@
-import 'package:flutter/material.dart';
+import 'package:code_fit/config/routes/app_router.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'config/themes/app_theme.dart';
-import 'features/splash/ui/screens/splash_screen.dart';
 
 /// Main app widget
 class CodeFitApp extends StatelessWidget {
-  const CodeFitApp({Key? key}) : super(key: key);
+  const CodeFitApp({
+    super.key,
+    required this.initialRoute,
+    required this.appRouter,
+  });
+
+  final String initialRoute;
+
+  final AppRouter appRouter;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +33,8 @@ class CodeFitApp extends StatelessWidget {
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
-          home: const SplashScreen(),
+          onGenerateRoute: appRouter.generateRoute,
+          initialRoute: initialRoute,
         );
       },
     );

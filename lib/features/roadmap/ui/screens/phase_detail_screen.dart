@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_colors.dart';
+
+import '../../../../config/colors/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../../../core/constants/app_strings.dart';
 import '../../data/models/phase_model.dart';
@@ -47,7 +48,9 @@ class _PhaseDetailScreenState extends State<PhaseDetailScreen> {
               ),
               const SizedBox(height: AppDimensions.spaceLarge),
               Text(
-                widget.language == 'ar' ? AppStrings.milestonesAr : AppStrings.milestones,
+                widget.language == 'ar'
+                    ? AppStrings.milestonesAr
+                    : AppStrings.milestones,
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -57,10 +60,12 @@ class _PhaseDetailScreenState extends State<PhaseDetailScreen> {
               if (widget.phase.milestones.isEmpty)
                 EmptyMilestonesWidget(language: widget.language)
               else
-                ...widget.phase.milestones.map((milestone) => MilestoneCardWidget(
-                      milestone: milestone,
-                      language: widget.language,
-                    )),
+                ...widget.phase.milestones.map(
+                  (milestone) => MilestoneCardWidget(
+                    milestone: milestone,
+                    language: widget.language,
+                  ),
+                ),
             ],
           ),
         ),
@@ -83,7 +88,9 @@ class PhaseProgressInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final percentage = (phase.progress * 100).toInt();
-    final completedMilestones = phase.milestones.where((m) => m.isCompleted).length;
+    final completedMilestones = phase.milestones
+        .where((m) => m.isCompleted)
+        .length;
     final totalMilestones = phase.milestones.length;
 
     return Container(
@@ -141,7 +148,8 @@ class PhaseProgressInfoWidget extends StatelessWidget {
               ),
               ProgressStatWidget(
                 label: language == 'ar' ? 'نقاط التفتيش' : 'Checkpoints',
-                value: '${phase.completedCheckpoints} / ${phase.totalCheckpoints}',
+                value:
+                    '${phase.completedCheckpoints} / ${phase.totalCheckpoints}',
                 icon: Icons.check_circle_outline,
               ),
             ],
@@ -183,10 +191,7 @@ class ProgressStatWidget extends StatelessWidget {
             ),
             Text(
               value,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -199,10 +204,8 @@ class ProgressStatWidget extends StatelessWidget {
 class EmptyMilestonesWidget extends StatelessWidget {
   final String language;
 
-  const EmptyMilestonesWidget({
-    Key? key,
-    required this.language,
-  }) : super(key: key);
+  const EmptyMilestonesWidget({Key? key, required this.language})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -218,7 +221,9 @@ class EmptyMilestonesWidget extends StatelessWidget {
             ),
             const SizedBox(height: AppDimensions.spaceMedium),
             Text(
-              language == 'ar' ? AppStrings.noMilestonesAr : AppStrings.noMilestones,
+              language == 'ar'
+                  ? AppStrings.noMilestonesAr
+                  : AppStrings.noMilestones,
               style: const TextStyle(
                 fontSize: 16,
                 color: AppColors.textSecondary,

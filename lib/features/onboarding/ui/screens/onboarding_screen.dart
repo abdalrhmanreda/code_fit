@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_colors.dart';
+
+import '../../../../config/colors/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../../../core/constants/app_strings.dart';
 import '../../../../core/services/storage_service.dart';
@@ -38,9 +39,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
     if (!mounted) return;
 
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => const HomeScreen()),
-    );
+    Navigator.of(
+      context,
+    ).pushReplacement(MaterialPageRoute(builder: (_) => const HomeScreen()));
   }
 
   void _nextPage() {
@@ -114,10 +115,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 class OnboardingHeaderWidget extends StatelessWidget {
   final VoidCallback onSkip;
 
-  const OnboardingHeaderWidget({
-    Key? key,
-    required this.onSkip,
-  }) : super(key: key);
+  const OnboardingHeaderWidget({Key? key, required this.onSkip})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -129,10 +128,7 @@ class OnboardingHeaderWidget extends StatelessWidget {
           onPressed: onSkip,
           child: const Text(
             AppStrings.skip,
-            style: TextStyle(
-              color: AppColors.textSecondary,
-              fontSize: 16,
-            ),
+            style: TextStyle(color: AppColors.textSecondary, fontSize: 16),
           ),
         ),
       ),
@@ -167,7 +163,7 @@ class OnboardingFooterWidget extends StatelessWidget {
         child: ElevatedButton(
           onPressed: onNext,
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primary,
+            backgroundColor: AppColors.kPrimaryColor,
             foregroundColor: AppColors.textWhite,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppDimensions.radiusMedium),
@@ -175,10 +171,7 @@ class OnboardingFooterWidget extends StatelessWidget {
           ),
           child: Text(
             isLastPage ? AppStrings.getStarted : AppStrings.next,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_colors.dart';
+
+import '../../../../config/colors/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../data/models/achievement_model.dart';
 
@@ -34,9 +35,7 @@ class AchievementCardWidget extends StatelessWidget {
         child: Material(
           elevation: achievement.isUnlocked ? 2 : 1,
           borderRadius: BorderRadius.circular(AppDimensions.radiusLarge),
-          color: achievement.isUnlocked
-              ? Colors.white
-              : Colors.grey.shade50,
+          color: achievement.isUnlocked ? Colors.white : Colors.grey.shade50,
           child: InkWell(
             borderRadius: BorderRadius.circular(AppDimensions.radiusLarge),
             onTap: achievement.isUnlocked ? () {} : null,
@@ -110,16 +109,10 @@ class AchievementBadgeWidget extends StatelessWidget {
             ? LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [
-                  _getBadgeColor(),
-                  _getBadgeColor().withOpacity(0.7),
-                ],
+                colors: [_getBadgeColor(), _getBadgeColor().withOpacity(0.7)],
               )
             : LinearGradient(
-                colors: [
-                  Colors.grey.shade300,
-                  Colors.grey.shade400,
-                ],
+                colors: [Colors.grey.shade300, Colors.grey.shade400],
               ),
         shape: BoxShape.circle,
         boxShadow: isUnlocked
@@ -172,18 +165,12 @@ class AchievementInfoWidget extends StatelessWidget {
       children: [
         Text(
           achievement.getTitle(language),
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: AppDimensions.spaceXSmall),
         Text(
           achievement.getDescription(language),
-          style: const TextStyle(
-            fontSize: 12,
-            color: AppColors.textSecondary,
-          ),
+          style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
         ),
       ],
     );

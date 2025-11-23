@@ -2,7 +2,7 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class LocaleKeys {
+abstract class  LocaleKeys {
   static const app_name = 'app_name';
   static const app_tagline = 'app_tagline';
   static const welcome = 'welcome';
@@ -57,4 +57,29 @@ abstract class LocaleKeys {
   static const level_up = 'level_up';
   static const congratulations = 'congratulations';
   static const new_badge_unlocked = 'new_badge_unlocked';
+  static const email = 'email';
+  static const password = 'password';
+  static const login = 'login';
+  static const signup = 'signup';
+  static const logout = 'logout';
+  static const forgot_password = 'forgot_password';
+  static const reset_password = 'reset_password';
+  static const enter_email = 'enter_email';
+  static const send_reset_link = 'send_reset_link';
+  static const remember_me = 'remember_me';
+  static const dont_have_account = 'dont_have_account';
+  static const create_account = 'create_account';
+  static const already_have_account = 'already_have_account';
+  static const welcome_back = 'welcome_back';
+  static const please_login = 'please_login';
+  static const invalid_credentials = 'invalid_credentials';
+  static const email_is_required = 'email_is_required';
+  static const password_is_required = 'password_is_required';
+  static const email_should_be_valid = 'email_should_be_valid';
+  static const password_min_length = 'password_min_length';
+  static const or = 'or';
+  static const google = 'google';
+  static const facebook = 'facebook';
+  static const password_should_be_strong = 'password_should_be_strong';
+
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../core/constants/app_colors.dart';
+
+import '../../../config/colors/app_colors.dart';
+import '../../../core/constants/app_curves.dart';
 import '../../../core/constants/app_dimensions.dart';
 import '../../../core/constants/app_durations.dart';
-import '../../../core/constants/app_curves.dart';
 
 /// XP progress bar widget showing level progress
 class XpProgressBar extends StatelessWidget {
@@ -94,7 +95,9 @@ class XpProgressBar extends StatelessWidget {
                 height: 12,
                 decoration: BoxDecoration(
                   color: AppColors.progressIncomplete,
-                  borderRadius: BorderRadius.circular(AppDimensions.radiusSmall),
+                  borderRadius: BorderRadius.circular(
+                    AppDimensions.radiusSmall,
+                  ),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.05),
@@ -110,10 +113,10 @@ class XpProgressBar extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * progress * 0.85,
                 height: 12,
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: AppColors.xpGradient,
+                  gradient: const LinearGradient(colors: AppColors.xpGradient),
+                  borderRadius: BorderRadius.circular(
+                    AppDimensions.radiusSmall,
                   ),
-                  borderRadius: BorderRadius.circular(AppDimensions.radiusSmall),
                   boxShadow: [
                     BoxShadow(
                       color: AppColors.xpBar.withOpacity(0.4),
