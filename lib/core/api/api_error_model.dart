@@ -10,6 +10,7 @@ class ApiErrorModel {
     this.details,
     DateTime? timestamp,
   }) : timestamp = timestamp ?? DateTime.now();
+  // response from server => ApiErrorModel => ApiErrorModel.fromMap()
 
   // Factory constructor to create error from status code
   factory ApiErrorModel.fromStatusCode(
@@ -24,6 +25,7 @@ class ApiErrorModel {
       details: details ?? errorInfo['details'],
     );
   }
+  // 200 => success _errorMessages[200]
 
   // Get error information based on status code
   static Map<String, String> getErrorInfo(int statusCode) {

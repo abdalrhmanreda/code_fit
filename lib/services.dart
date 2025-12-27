@@ -5,10 +5,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/helpers/bloc_observer.dart';
 
+import 'package:graphql_flutter/graphql_flutter.dart';
+
 class Services {
   static Future<void> initialize() async {
     WidgetsFlutterBinding.ensureInitialized();
     await EasyLocalization.ensureInitialized();
+    await initHiveForFlutter();
     Bloc.observer = MyBlocObserver();
     setupGetIt();
   }

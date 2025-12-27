@@ -304,7 +304,7 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.dark,
       primaryColor: AppColors.kPrimaryColor,
-      scaffoldBackgroundColor: AppColors.backgroundDark,
+      scaffoldBackgroundColor: AppColors.kPrimary,
 
       // Apply DM Sans font family
       fontFamily: GoogleFonts.dmSans().fontFamily,
@@ -326,7 +326,7 @@ class AppTheme {
       appBarTheme: AppBarTheme(
         elevation: 0,
         centerTitle: true,
-        backgroundColor: AppColors.backgroundDark,
+        backgroundColor: AppColors.kPrimary,
         foregroundColor: AppColors.textWhite,
         iconTheme: const IconThemeData(color: AppColors.textWhite),
         titleTextStyle: GoogleFonts.dmSans(
