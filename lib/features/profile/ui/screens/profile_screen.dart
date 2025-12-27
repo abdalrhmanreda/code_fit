@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_colors.dart';
+
+import '../../../../config/colors/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../../../core/constants/app_strings.dart';
 import '../../../../core/services/storage_service.dart';
-import '../../../../core/utils/xp_calculator.dart';
 import '../../../../core/utils/streak_calculator.dart';
-import '../widgets/profile_stat_widget.dart';
+import '../../../../core/utils/xp_calculator.dart';
 import '../widgets/profile_header_widget.dart';
+import '../widgets/profile_stat_widget.dart';
 
 /// Profile screen showing user stats and settings
 class ProfileScreen extends StatefulWidget {
@@ -134,7 +135,7 @@ class ProfileStatsGridWidget extends StatelessWidget {
             title: language == 'ar' ? AppStrings.levelAr : AppStrings.level,
             value: level.toString(),
             icon: Icons.trending_up,
-            color: AppColors.primary,
+            color: AppColors.kPrimaryColor,
           ),
         ),
         const SizedBox(width: AppDimensions.spaceMedium),
@@ -155,10 +156,8 @@ class ProfileStatsGridWidget extends StatelessWidget {
 class SettingsListWidget extends StatelessWidget {
   final String language;
 
-  const SettingsListWidget({
-    Key? key,
-    required this.language,
-  }) : super(key: key);
+  const SettingsListWidget({Key? key, required this.language})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +165,9 @@ class SettingsListWidget extends StatelessWidget {
       children: [
         SettingsItemWidget(
           icon: Icons.notifications,
-          title: language == 'ar' ? AppStrings.notificationsAr : AppStrings.notifications,
+          title: language == 'ar'
+              ? AppStrings.notificationsAr
+              : AppStrings.notifications,
           onTap: () {},
         ),
         SettingsItemWidget(
@@ -202,7 +203,7 @@ class SettingsItemWidget extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.only(bottom: AppDimensions.marginSmall),
       child: ListTile(
-        leading: Icon(icon, color: AppColors.primary),
+        leading: Icon(icon, color: AppColors.kPrimaryColor),
         title: Text(title),
         trailing: const Icon(Icons.chevron_right),
         onTap: onTap,

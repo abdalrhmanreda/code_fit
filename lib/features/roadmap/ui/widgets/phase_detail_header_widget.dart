@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_colors.dart';
+
+import '../../../../config/colors/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../data/models/phase_model.dart';
 
@@ -29,15 +30,10 @@ class PhaseDetailHeaderWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          PhaseHeaderIconWidget(
-            iconName: phase.iconName,
-          ),
+          PhaseHeaderIconWidget(iconName: phase.iconName),
           const SizedBox(width: AppDimensions.spaceMedium),
           Expanded(
-            child: PhaseHeaderInfoWidget(
-              phase: phase,
-              language: language,
-            ),
+            child: PhaseHeaderInfoWidget(phase: phase, language: language),
           ),
         ],
       ),
@@ -49,10 +45,8 @@ class PhaseDetailHeaderWidget extends StatelessWidget {
 class PhaseHeaderIconWidget extends StatelessWidget {
   final String iconName;
 
-  const PhaseHeaderIconWidget({
-    Key? key,
-    required this.iconName,
-  }) : super(key: key);
+  const PhaseHeaderIconWidget({Key? key, required this.iconName})
+    : super(key: key);
 
   IconData _getIconData() {
     switch (iconName) {
@@ -82,11 +76,7 @@ class PhaseHeaderIconWidget extends StatelessWidget {
         color: AppColors.textWhite.withOpacity(0.2),
         borderRadius: BorderRadius.circular(AppDimensions.radiusMedium),
       ),
-      child: Icon(
-        _getIconData(),
-        color: AppColors.textWhite,
-        size: 40,
-      ),
+      child: Icon(_getIconData(), color: AppColors.textWhite, size: 40),
     );
   }
 }
@@ -118,10 +108,7 @@ class PhaseHeaderInfoWidget extends StatelessWidget {
         const SizedBox(height: AppDimensions.spaceSmall),
         Text(
           phase.getDescription(language),
-          style: const TextStyle(
-            fontSize: 14,
-            color: AppColors.textWhite,
-          ),
+          style: const TextStyle(fontSize: 14, color: AppColors.textWhite),
         ),
       ],
     );

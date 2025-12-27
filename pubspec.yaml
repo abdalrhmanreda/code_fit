@@ -52,6 +52,32 @@ dependencies:
   # Localization
   easy_localization: ^3.0.3
   flutter_screenutil: ^5.9.3
+  icons_plus: ^5.0.0
+  #Code generation for immutable classes
+  freezed: ^2.4.7
+  freezed_annotation: ^2.4.1
+  #Code generation for JSON serialization
+  json_serializable: ^6.7.1
+  json_annotation: ^4.8.1
+  #dependency injection
+  get_it: ^8.2.0
+  # Networking
+  dio: ^5.4.3+1
+  retrofit: ^4.1.0
+  retrofit_generator: ^8.1.0
+  pretty_dio_logger: ^1.3.1
+  # to auto generate code
+  build_runner: ^2.4.8
+  # Either type for functional error handling
+  dart_either: ^2.0.0
+  # fonts
+  google_fonts: ^6.3.2
+  flutter_svg: ^2.2.3
+  graphql_flutter: ^5.2.1
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  skeletonizer: ^2.1.2
+  url_launcher: ^6.3.2
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +104,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/translations/
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

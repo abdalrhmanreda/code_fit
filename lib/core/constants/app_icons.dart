@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:icons_plus/icons_plus.dart';
 
 /// App icon constants
 class AppIcons {
   // Private constructor to prevent instantiation
   AppIcons._();
+
+  // Login & Authentication
+  static const IconData visibility = Iconsax.eye_outline;
+
+  static const IconData visibilityOff = Iconsax.eye_slash_outline;
 
   // Navigation
   static const IconData home = Icons.home;

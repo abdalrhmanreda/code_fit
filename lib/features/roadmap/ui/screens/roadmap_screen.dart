@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_colors.dart';
+
+import '../../../../config/colors/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../../../core/constants/app_strings.dart';
 import '../../../../core/services/storage_service.dart';
@@ -118,7 +119,9 @@ class _RoadmapScreenState extends State<RoadmapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_language == 'ar' ? AppStrings.roadmapAr : AppStrings.roadmap),
+        title: Text(
+          _language == 'ar' ? AppStrings.roadmapAr : AppStrings.roadmap,
+        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -146,10 +149,9 @@ class _RoadmapScreenState extends State<RoadmapScreen> {
                 ),
               ),
               const SizedBox(height: AppDimensions.spaceMedium),
-              ..._phases.map((phase) => PhaseCardWidget(
-                    phase: phase,
-                    language: _language,
-                  )),
+              ..._phases.map(
+                (phase) => PhaseCardWidget(phase: phase, language: _language),
+              ),
             ],
           ),
         ),
