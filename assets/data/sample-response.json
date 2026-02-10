@@ -1,0 +1,262 @@
+{
+    "status": "success",
+    "status_code": 200,
+    "message": "Services Fetched Successfully",
+    "data": {
+        "id": 1,
+        "name": {
+            "en": "Licenses and Approvals",
+            "ar": "التراخيص والموافقات"
+        },
+        "description": {
+            "en": {
+                "time": 1767861480000,
+                "blocks": [
+                    {
+                        "type": "paragraph",
+                        "data": {
+                            "text": "Handling all required licenses and official approvals for engineering projects."
+                        }
+                    }
+                ],
+                "version": "2.29.1"
+            },
+            "ar": {
+                "time": 1767861480000,
+                "blocks": [
+                    {
+                        "type": "paragraph",
+                        "data": {
+                            "text": "إدارة جميع التراخيص والموافقات الرسمية المطلوبة للمشاريع الهندسية."
+                        }
+                    }
+                ],
+                "version": "2.29.1"
+            }
+        },
+        "slug": "licenses-and-approvals",
+        "identifier": "licenses_approvals",
+        "thumbnail": null,
+        "form": {
+            "id": 1,
+            "identifier": "licenses_approvals_form",
+            "slug": "licenses-approvals-form",
+            "definition": {
+                "steps": [
+                    {
+                        "title": {
+                            "en": "Applicant Information",
+                            "ar": "معلومات المتقدم"
+                        },
+                        "fields": [
+                            {
+                                "key": "applicant_name",
+                                "type": "text",
+                                "span": 12,
+                                "label": {
+                                    "en": "Applicant Name",
+                                    "ar": "اسم المتقدم"
+                                },
+                                "rules": "required",
+                                "required": true
+                            },
+                            {
+                                "key": "applicant_email",
+                                "type": "text",
+                                "repeatable": true,
+                                "min_instances": 1,
+                                "max_instances": 3,
+                                "rules": "required|email|unique:users,email",
+                                "label": {
+                                    "en": "Email",
+                                    "ar": "البريد الإلكتروني"
+                                },
+                                "required": true
+                            },
+                            {
+                                "key": "project_type",
+                                "type": "select",
+                                "multiple": true,
+                                "label": {
+                                    "en": "Project Type",
+                                    "ar": "نوع المشروع"
+                                },
+                                "options": [
+                                    {
+                                        "value": "residential",
+                                        "label": {
+                                            "en": "Residential",
+                                            "ar": "سكني"
+                                        }
+                                    },
+                                    {
+                                        "value": "commercial",
+                                        "label": {
+                                            "en": "Commercial",
+                                            "ar": "تجاري"
+                                        }
+                                    },
+                                    {
+                                        "value": "industrial",
+                                        "label": {
+                                            "en": "Industrial",
+                                            "ar": "صناعي"
+                                        }
+                                    },
+                                    {
+                                        "value": "other",
+                                        "label": {
+                                            "en": "Other",
+                                            "ar": "أخرى"
+                                        }
+                                    }
+                                ],
+                                "required": true
+                            },
+                            {
+                                "key": "project_category",
+                                "type": "select",
+                                "label": {
+                                    "en": "Project Category",
+                                    "ar": "فئة المشروع"
+                                },
+                                "dynamic_options": {
+                                    "model": "Modules\\Utilities\\Models\\Term",
+                                    "value_field": "id",
+                                    "label_field": "name",
+                                    "constrains": {
+                                        "group.slug": "project_objectives"
+                                    }
+                                },
+                                "required": true
+                            }
+                        ]
+                    },
+                    {
+                        "title": {
+                            "en": "Attachments & Details",
+                            "ar": "المرفقات والتفاصيل"
+                        },
+                        "fields": [
+                            {
+                                "key": "attachments",
+                                "type": "file",
+                                "label": {
+                                    "en": "Attachments",
+                                    "ar": "المرفقات"
+                                },
+                                "multiple": true,
+                                "required": false
+                            },
+                            {
+                                "key": "safety_certificates",
+                                "type": "file",
+                                "label": {
+                                    "en": "Safety Certificates",
+                                    "ar": "شهادات السلامة"
+                                },
+                                "multiple": true,
+                                "required": false
+                            },
+                            {
+                                "key": "notes",
+                                "type": "textarea",
+                                "label": {
+                                    "en": "Additional Notes",
+                                    "ar": "ملاحظات إضافية"
+                                },
+                                "required": false
+                            },
+                            {
+                                "key": "approval_needed",
+                                "type": "radio",
+                                "label": {
+                                    "en": "Approval Needed?",
+                                    "ar": "هل يلزم موافقة؟"
+                                },
+                                "options": [
+                                    {
+                                        "value": "yes",
+                                        "label": {
+                                            "en": "Yes",
+                                            "ar": "نعم"
+                                        }
+                                    },
+                                    {
+                                        "value": "no",
+                                        "label": {
+                                            "en": "No",
+                                            "ar": "لا"
+                                        }
+                                    }
+                                ],
+                                "required": true
+                            }
+                        ]
+                    },
+                    {
+                        "title": {
+                            "en": "Optional Section / Group",
+                            "ar": "القسم الاختياري / المجموعة"
+                        },
+                        "fields": [
+                            {
+                                "key": "project_scope",
+                                "type": "checkbox",
+                                "multiple": true,
+                                "label": {
+                                    "en": "Project Scope (Multiple)",
+                                    "ar": "نطاق المشروع (متعدد)"
+                                },
+                                "rules": "required",
+                                "options": [
+                                    {
+                                        "value": "small",
+                                        "label": {
+                                            "en": "Small Scale",
+                                            "ar": "نطاق صغير"
+                                        }
+                                    },
+                                    {
+                                        "value": "large",
+                                        "label": {
+                                            "en": "Large Scale",
+                                            "ar": "نطاق واسع"
+                                        }
+                                    }
+                                ],
+                                "required": true
+                            }
+                        ]
+                    }
+                ],
+                "conditions": []
+            },
+            "configuration": null,
+            "runtime_attributes": null,
+            "name": "نموذج التراخيص والموافقات",
+            "description": "نموذج تجريبي لـ التراخيص والموافقات",
+            "version": 1,
+            "roles": null,
+            "permissions": null,
+            "access_processors": null,
+            "ui_settings": null,
+            "formable_type": "Modules\\Services\\Models\\Service",
+            "formable_id": 1,
+            "status": "active",
+            "created_by_id": null,
+            "updated_by_id": null,
+            "deleted_by_id": null,
+            "deleted_at": null,
+            "created_at": "2026-01-08T08:36:06.000000Z",
+            "updated_at": "2026-01-08T08:36:06.000000Z"
+        },
+        "created_at": "2026-01-08T08:36:06.000000Z",
+        "updated_at": "2026-01-08T08:38:00.000000Z"
+    },
+    "pagination": null,
+    "errors": null,
+    "meta": {
+        "server_time": 1769333985
+    }
+}

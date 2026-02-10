@@ -1,17 +1,42 @@
-import 'package:code_fit/features/login/data/models/login_request_model.dart';
-import 'package:code_fit/features/login/data/models/login_response_model.dart';
+import 'package:code_fit/blocked_and_maintance/data/models/app_status_model.dart';
 import 'package:dio/dio.dart';
-import 'package:retrofit/retrofit.dart'; // Ensure this is imported instead of just 'http.dart'
 
 import 'api_constant.dart';
 
-part 'api_services.g.dart';
+class ApiServices {
+  final Dio _dio;
 
-@RestApi(baseUrl: ApiConstant.baseUrl)
-abstract class ApiServices {
-  // The factory constructor is required for Retrofit to generate the implementation
-  factory ApiServices(Dio dio, {String baseUrl}) = _ApiServices;
+  ApiServices(this._dio);
 
-  @POST(ApiConstant.loginEndpoint)
-  Future<LoginResponseModel> login(@Body() LoginRequestModel loginRequestBody);
+  Future<AppStatusModel> getStatus(int appId) async {
+    try {
+      final response = await _dio.get(
+        ApiConstant.getStatusEndpoint,
+        queryParameters: {'appId': appId},
+      );
+      return AppStatusModel.fromJson(response.data);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<AppStatusModel> setStatus(
+    int appId,
+    bool isBlocked,
+    bool isMaintainance,
+  ) async {
+    try {
+      final response = await _dio.get(
+        ApiConstant.setStatusEndpoint,
+        queryParameters: {
+          'appId': appId,
+          'isBlocked': isBlocked,
+          'isMantainance': isMaintainance,
+        },
+      );
+      return AppStatusModel.fromJson(response.data);
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

@@ -1,7 +1,5 @@
-import 'package:code_fit/config/colors/app_colors.dart';
 import 'package:code_fit/config/routes/app_router.dart';
-import 'package:code_fit/features/movie/screens/onboarding.dart';
-import 'package:code_fit/test_screen.dart';
+import 'package:code_fit/features/birthday_card/ui/screens/romantic_birthday_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -47,7 +45,10 @@ class CodeFitApp extends StatelessWidget {
             locale: context.locale,
             onGenerateRoute: appRouter.generateRoute,
             // initialRoute: initialRoute,
-            home: AnimeMoviesOnboardingScreen(),
+            home: const RomanticBirthdayScreen(
+              recipientName: 'Omnya',
+              senderName: 'With Love',
+            ),
           );
         },
       ),

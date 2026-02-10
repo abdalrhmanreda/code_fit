@@ -78,6 +78,16 @@ dependencies:
   hive_flutter: ^1.1.0
   skeletonizer: ^2.1.2
   url_launcher: ^6.3.2
+  sqflite: ^2.3.0
+  path_provider: ^2.1.1
+  excel: ^4.0.6
+  intl: ^0.20.2
+  permission_handler: ^11.0.1
+  maplibre_gl: ^0.25.0
+  flutter_localizations:
+    sdk: flutter
+  flutter_animate: ^4.5.2
+  liquid_swipe: ^3.1.0
 
 dev_dependencies:
   flutter_test:
@@ -105,6 +115,9 @@ flutter:
   assets:
     - assets/translations/
     - assets/images/
+    - assets/lottie/
+    - assets/data/
+    - assets/liqwed/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

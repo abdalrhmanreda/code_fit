@@ -15,7 +15,8 @@ class LoginRepo {
     LoginRequestModel loginRequestBody,
   ) async {
     try {
-      final response = await apiServices.login(loginRequestBody);
+      // final response = await apiServices.login(loginRequestBody);
+      final response = LoginResponseModel(token: 'token', userId: '');
       return Right(response);
     } catch (error) {
       if (error is DioException) {

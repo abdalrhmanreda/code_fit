@@ -51,5 +51,8 @@
 		<string>sms</string>
 		<string>tel</string>
 	</array>
+
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to your location to allow you to pick your workout or delivery location on the map.</string>
 </dict>
 </plist>

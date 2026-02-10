@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/login/ui/screens/login_screen.dart';
+import '../../features/seasons/ui/screens/summer_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -17,7 +18,8 @@ class AppRouter {
             child: LoginScreen(),
           ),
         );
-        return null;
+      case RouteNames.summer:
+        return MaterialPageRoute(builder: (_) => const SummerScreen());
       default:
         return null;
     }
